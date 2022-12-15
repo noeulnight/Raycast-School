@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "geubsig-johoe",
-  "title": "급식 조회",
-  "description": "학교 급식 조회",
+  "title": "학교 통합 서비스",
+  "description": "대한민국 학교의 정보를 불러옵니다.",
   "icon": "command-icon.png",
   "author": "noeulnight",
   "categories": [
@@ -11,14 +11,28 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
+      "name": "food",
       "title": "급식 조회",
       "subtitle": "food",
       "description": "오늘 급식을 불러옵니다.",
       "mode": "view"
+    },
+    {
+      "name": "schedule",
+      "title": "시간표 조회",
+      "subtitle": "schedule",
+      "description": "오늘 시간표를 불러옵니다.",
+      "mode": "view"
     }
   ],
   "preferences": [
+    {
+      "name": "apiKey",
+      "title": "API키",
+      "description": "NEIS API키를 입력해주세요.",
+      "type": "textfield",
+      "required": true
+    },
     {
       "name": "atptOfcdcScCode",
       "title": "교육청 코드",
@@ -32,6 +46,27 @@
       "description": "학교 코드를 입력해주세요.",
       "type": "textfield",
       "required": true
+    },
+    {
+      "name": "grade",
+      "title": "학년",
+      "description": "학년을 입력해주세요.",
+      "type": "textfield",
+      "required": true
+    },
+    {
+      "name": "class_nm",
+      "title": "반(숫자)",
+      "description": "반을 입력해주세요.",
+      "type": "textfield",
+      "required": true
+    },
+    {
+      "name": "dddep",
+      "title": "학과",
+      "description": "학과를 입력해주세요",
+      "type": "textfield",
+      "required": false
     }
   ],
   "dependencies": {
