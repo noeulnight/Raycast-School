@@ -1,0 +1,58 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "geubsig-johoe",
+  "title": "급식 조회",
+  "description": "학교 급식 조회",
+  "icon": "command-icon.png",
+  "author": "noeulnight",
+  "categories": [
+    "Applications"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "급식 조회",
+      "subtitle": "food",
+      "description": "오늘 급식을 불러옵니다.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "atptOfcdcScCode",
+      "title": "교육청 코드",
+      "description": "교육청 코드를 입력해주세요.",
+      "type": "textfield",
+      "required": true
+    },
+    {
+      "name": "schoolCode",
+      "title": "학교 코드",
+      "description": "학교 코드를 입력해주세요.",
+      "type": "textfield",
+      "required": true
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.44.0",
+    "undici": "^5.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.8.3",
+    "@types/react": "18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "ray publish"
+  }
+}
