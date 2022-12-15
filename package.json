@@ -3,7 +3,7 @@
   "name": "geubsig-johoe",
   "title": "학교 통합 서비스",
   "description": "대한민국 학교의 정보를 불러옵니다.",
-  "icon": "command-icon.png",
+  "icon": "school-icon.png",
   "author": "noeulnight",
   "categories": [
     "Applications"
