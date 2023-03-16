@@ -1,5 +1,5 @@
 import { request } from "undici";
-import { Action, ActionPanel, Detail, getPreferenceValues, ListItem } from "@raycast/api";
+import { Action, ActionPanel, Detail, Toast, getPreferenceValues } from "@raycast/api";
 import { useEffect, useState } from "react";
 
 interface Preferences {
@@ -30,7 +30,7 @@ export default function Command() {
       setIsLoading(true)
       const { schoolCode, atptOfcdcScCode, apiKey, grade, class_nm, dddep } = await getPreferenceValues<Preferences>()
       const yyyymmdd = date.getFullYear().toString() + (date.getMonth() + 1).toString().padStart(2, "0") + date.getDate().toString().padStart(2, "0")
-      const response = await request(`https://open.neis.go.kr/hub/hisTimetable?ATPT_OFCDC_SC_CODE=${atptOfcdcScCode}&SD_SCHUL_CODE=${schoolCode}&type=json&key=${apiKey}&grade=${grade}&class_nm=${class_nm}&ay=2022&ALL_TI_YMD=${yyyymmdd}${dddep ? "&DDDEP_NM=" + dddep : ""}`)
+      const response = await request(`https://open.neis.go.kr/hub/hisTimetable?ATPT_OFCDC_SC_CODE=${atptOfcdcScCode}&SD_SCHUL_CODE=${schoolCode}&type=json&key=${apiKey}&grade=${grade}&class_nm=${class_nm}&ay=2023&ALL_TI_YMD=${yyyymmdd}${dddep ? "&DDDEP_NM=" + dddep : ""}`)
       const { body } = response
       const data = await body.json()
 
@@ -44,9 +44,21 @@ export default function Command() {
       setIsLoading(false)
     } catch (error) {
       setPreferences(undefined)
+      // const options: Toast.Options = {
+      //   style: Toast.Style.Failure,
+      //   title: title,
+      //   message: stderr,
+      //   primaryAction: {
+      //     title: "Copy Error Log",
+      //     onAction: () => {
+      //       Clipboard.copy(stderr);
+      //     },
+      //   },
+      // };
       setSchool("학교 정보를 불러오는데 실패했습니다.")
       setListSchedule(["시간표 정보가 없습니다."])
       setIsLoading(false)
+      console.log(error)
     }
   }
 
